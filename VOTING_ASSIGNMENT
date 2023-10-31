@@ -1,0 +1,249 @@
+1. go to root (cd $home )
+[ec2-user@ip-13-215-178-137 ~]$ sudo su -
+Last login: Mon Oct 31 02:31:56 UTC 2023 on pts/1
+[root@ip-13-215-178-137 ~]# cd $home
+--------------------------------------------------------------------------------------------
+2. git clone https://github.com/ashishrpandey/example-voting-app
+[root@ip-13-215-178-137 ~]# git clone https://github.com/ashishrpandey/example-voting-app
+fatal: destination path 'example-voting-app' already exists and is not an empty directory.
+---------------------------------------------------------------------------------------------
+3. cd /root/example-voting-app/k8s-specifications
+[root@ip-13-215-178-137 ~]# cd /root/example-voting-app/k8s-specifications/
+[root@ip-13-215-178-137 k8s-specifications]# ll
+total 36
+-rw-r--r-- 1 root root 401 Oct 31 02:33 db-deployment.yaml
+-rw-r--r-- 1 root root 146 Oct 31 02:33 db-service.yaml
+-rw-r--r-- 1 root root 402 Oct 31 02:33 redis-deployment.yaml
+-rw-r--r-- 1 root root 152 Oct 31 02:33 redis-service.yaml
+-rw-r--r-- 1 root root 299 Oct 31 02:33 result-deployment.yaml
+-rw-r--r-- 1 root root 195 Oct 31 02:33 result-service.yaml
+-rw-r--r-- 1 root root 289 Oct 31 02:33 vote-deployment.yaml
+-rw-r--r-- 1 root root 192 Oct 31 02:33 vote-service.yaml
+-rw-r--r-- 1 root root 292 Oct 31 02:33 worker-deployment.yaml
+---------------------------------------------------------------------------------------------------
+[root@ip-13-215-178-137 k8s-specifications]#
+[root@ip-13-215-178-137 k8s-specifications]#
+[root@ip-13-215-178-137 k8s-specifications]#
+[root@ip-13-215-178-137 k8s-specifications]#
+[root@ip-13-215-178-137 k8s-specifications]#
+[root@ip-13-215-178-137 k8s-specifications]# vi vote-service.yaml
+[root@ip-13-215-178-137 k8s-specifications]# vi vote-service.yaml
+[root@ip-13-215-178-137 k8s-specifications]# vi result-service.yaml
+[root@ip-13-215-178-137 k8s-specifications]#
+[root@ip-13-215-178-137 k8s-specifications]#
+[root@ip-13-215-178-137 k8s-specifications]#
+[root@ip-13-215-178-137 k8s-specifications]# cd ..
+[root@ip-13-215-178-137 example-voting-app]# ls -lrt
+total 96
+-rw-r--r-- 1 root root  2182 Oct 31 02:35 README.md
+-rw-r--r-- 1 root root   185 Oct 31 02:35 MAINTAINERS
+-rw-r--r-- 1 root root 10758 Oct 31 02:35 LICENSE
+-rw-r--r-- 1 root root  1692 Oct 31 02:35 docker-stack.yml
+-rw-r--r-- 1 root root   808 Oct 31 02:35 docker-compose.yml
+-rw-r--r-- 1 root root   400 Oct 31 02:35 docker-compose-simple.yml
+-rw-r--r-- 1 root root   808 Oct 31 02:35 docker-compose-javaworker.yml
+-rw-r--r-- 1 root root   609 Oct 31 02:35 dockercloud.yml
+-rw-r--r-- 1 root root 54824 Oct 31 02:35 architecture.png
+drwxr-xr-x 3 root root    70 Oct 31 02:35 worker
+drwxr-xr-x 4 root root    93 Oct 31 02:35 vote
+drwxr-xr-x 5 root root   133 Oct 31 02:35 result
+drwxr-xr-x 2 root root   250 Oct 31 02:35k8s-specifications
+[root@ip-13-215-178-137 example-voting-app]# cd vote
+[root@ip-13-215-178-137 vote]# ls -lrt
+total 12
+drwxr-xr-x 2 root root   24 Oct 31 02:35 templates
+drwxr-xr-x 3 root root   25 Oct 31 02:35 static
+-rw-r--r-- 1 root root   21 Oct 31 02:35 requirements.txt
+-rw-r--r-- 1 root root  557 Oct 31 02:35 Dockerfile
+-rw-r--r-- 1 root root 1123 Oct 31 02:35 app.py
+[root@ip-13-215-178-137 vote]#
+[root@ip-13-215-178-137 vote]#
+[root@ip-13-215-178-137 vote]#
+[root@ip-13-215-178-137 vote]# vi app.py
+[root@ip-13-215-178-137 vote]# cd ..
+[root@ip-13-215-178-137 example-voting-app]# cd worker/
+[root@ip-13-215-178-137 worker]# ls -lrt
+total 12
+drwxr-xr-x 4 root root   32 Oct 31 02:35 src
+-rw-r--r-- 1 root root 2504 Oct 31 02:35 pom.xml
+-rw-r--r-- 1 root root  473 Oct 31 02:35 Dockerfile.j
+-rw-r--r-- 1 root root  213 Oct 31 02:35 Dockerfile
+[root@ip-13-215-178-137 worker]#
+[root@ip-13-215-178-137 worker]#
+[root@ip-13-215-178-137 worker]#
+[root@ip-13-215-178-137 worker]#
+[root@ip-13-215-178-137 worker]# cd src
+[root@ip-13-215-178-137 src]# ls -lrt
+total 0
+drwxr-xr-x 3 root root 18 Oct 31 02:35 main
+drwxr-xr-x 2 root root 45 Oct 31 02:35 Worker
+[root@ip-13-215-178-137 src]# cd Worker
+[root@ip-13-215-178-137 Worker]# ls -lrt
+total 12
+-rw-r--r-- 1 root root  654 Oct 31 02:35 Worker.csproj
+-rw-r--r-- 1 root root 5521 Oct 31 02:35 Program.cs
+[root@ip-13-215-178-137 Worker]# vi Program.cs
+[root@ip-13-215-178-137 Worker]#
+[root@ip-13-215-178-137 Worker]#
+[root@ip-13-215-178-137 Worker]#
+[root@ip-13-215-178-137 Worker]#
+[root@ip-13-215-178-137 Worker]#
+[root@ip-13-215-178-137 Worker]# cd  /root/example-voting-app/result
+[root@ip-13-215-178-137 result]# ls -lrt
+total 16
+drwxr-xr-x 2 root root   57 Oct 31 02:35 tests
+-rw-r--r-- 1 root root 2239 Oct 31 02:35 server.js
+-rw-r--r-- 1 root root  417 Oct 31 02:35 package.json
+-rw-r--r-- 1 root root  334 Oct 31 02:35 Dockerfile
+-rw-r--r-- 1 root root  787 Oct 31 02:35 docker-compose.test.yml
+drwxr-xr-x 3 root root   77 Oct 31 02:35 views
+[root@ip-13-215-178-137 result]# vi server.js
+[root@ip-13-215-178-137 result]#
+[root@ip-13-215-178-137 result]#
+[root@ip-13-215-178-137 result]#
+[root@ip-13-215-178-137 result]#
+[root@ip-13-215-178-137 result]# cd /root/example-voting-app/k8s-specifications
+4. kubectl apply -f .
+[root@ip-13-215-178-137 k8s-specifications]# kubectl apply -f .
+deployment.apps/db created
+service/db created
+deployment.apps/redis created
+service/redis created
+deployment.apps/result created
+service/result created
+deployment.apps/vote created
+service/vote created
+deployment.apps/worker created
+[root@ip-13-215-178-137 k8s-specifications]# kubectl get po
+NAME                                              READY   STATUS      RESTARTS  AGE
+batch-job-every-fifteen-minutes-1689961500-xgl2b   0/1    Completed   0          41m
+batch-job-every-fifteen-minutes-1689962400-jcjs6   0/1    Completed   0          26m
+batch-job-every-fifteen-minutes-1689963300-wt5xt   0/1    Completed   0          11m
+db-b54cd94f4-8q2qq                                 1/1     Running    0          8s
+kubia-79b84b44f4-87vpc                             1/1     Running    0          15h
+kubia-79b84b44f4-nql6g                             1/1     Running    0          15h
+kubia-79b84b44f4-xpcft                             1/1     Running    0          15h
+kubia-dvl52                                       1/1     Running     0         8h
+kubia-fj4b7                                       1/1     Running     0         8h
+kubia-manual                                       1/1     Running    0          8h
+kubia-s6j4w                                       1/1     Running     0         8h
+multi-completion-batch-job-6dx66                   0/1     Completed  0          8h
+multi-completion-batch-job-g7pq5                   0/1     Completed  0          8h
+multi-completion-batch-job-ghhmk                   0/1     Completed  0          8h
+multi-completion-batch-job-ppn85                   0/1     Completed  0          8h
+multi-completion-batch-job-sgmbg                   0/1     Completed  0          8h
+redis-868d64d78-2rd9z                              1/1     Running    0          8s
+result-5d57b59f4b-mnpq6                            1/1     Running    0          8s
+vote-94849dc97-9srmq                               1/1     Running    0          8s
+worker-dd46d7584-8kpn9                             1/1     Running    0          8s
+--------------------------------------------------------------------------------------------------------
+5. for voting and result pods, Observe that NodePort is assigned.
+[root@ip-13-215-178-137 k8s-specifications]# kubectl get svc
+NAME                TYPE           CLUSTER-IP       EXTERNAL-IP   PORT(S)          AGE
+db                  ClusterIP      10.96.187.67     <none>        5432/TCP         56s
+kubia-loadbalancer  LoadBalancer   10.104.157.240   <pending>     80:31451/TCP     8h
+kubia-nodeport      NodePort       10.106.8.50      <none>        80:30123/TCP     8h
+kubia2              ClusterIP      10.99.10.99      <none>        80/TCP           8h
+redis               ClusterIP      10.97.109.146    <none>        6379/TCP         56s
+result              NodePort       10.106.6.44      <none>        5001:31002/TCP   56s
+vote                NodePort       10.102.107.16    <none>        5000:31003/TCP   56s
+------------------------------------------------------------------------------------------------------------
+6. take your publicIP (your instance IP) : NodePort ► open 2 browsers , one for VOTING and one for Results.
+My publicIP : 13.214.209.170       
+For VOTING  : 13.214.209.170:31002
+For RESULT  : 13.214.209.170:31003
+-------------------------------------------------------------------------------------------------------------
+7. try voting and see the results paralelly in results page.
+Followed the same as mentioned
+--------------------------------------------------------------------------------------------------------------
+8. Now try to delete the Pods one by one (first voting Pod, then worker pod, then db pod) and see what happens to the voting and result app after deleting.
+1st ► VOTE pod ► Observe what happens both in frontEnd & in Unix
+2nd ► WORKER pod  ► Observe what happens both in frontEnd & in Unix
+3rd ► DB pod ► Observe what happens both in frontEnd & in Unix"
+9. My observations
+1st ► VOTE pod ► After deleting the VOTE POD new vote pod was generated but no disruption in the entire application was observed as VOTE POD does not contains any data.
+[root@ip-13-215-178-137 result]# kubectl delete po vote-94849dc97-9srmq
+pod "vote-94849dc97-9srmq" deleted
+ 
+2nd ► WORKER pod  ► After deleting the WORKER POD all the logs got vanished and new WORKER POD was generated as observed.
+[root@ip-13-215-178-137 result]# kubectl delete po worker-dd46d7584-8kpn9
+pod "worker-dd46d7584-8kpn9" deleted
+ 
+3rd ► DB pod ► After deleting DB POD the data is completely lost and new DB was generated as observed.
+[root@ip-13-215-178-137 result]# kubectl delete po db-b54cd94f4-2ksll
+pod "db-b54cd94f4-2ksll" deleted
+--------------------------------------------------------------------------------------------------------------
+Logs generated in WORKER POD
+[root@ip-13-215-178-137 result]# kubectl logs worker-dd46d7584-8kpn9
+Connected to db
+Found redis at 10.97.109.146
+Connecting to redis
+Processing vote for 'a' by '6da70c902782609'
+Processing vote for 'b' by '6da70c902782609'
+Processing vote for 'a' by '6da70c902782609'
+Processing vote for 'b' by '6da70c902782609'
+Processing vote for 'a' by '6da70c902782609'
+Processing vote for 'b' by '6da70c902782609'
+Processing vote for 'a' by '6da70c902782609'
+Processing vote for 'b' by '6da70c902782609'
+Processing vote for 'a' by '6da70c902782609'
+-------------------------------------------------------------------------------------------------------------------
+10. what happens after db pod deletion?
+After deletion of db pod the data is completely lost and new DB was generated as observed.
+--------------------------------------------------------------------------------------------------------------------
+11. complete the assignment by making the result pod work.
+I have Completed the assignment by making the result pod work as result pod came automatically.
+--------------------------------------------------------------------------------------------------------------------
+12. Write in the text file, what you did in order to make the result pod work.
+After deleting the DB POD the data is completely lost and new DB was generated and again we have to vote and result will appear to make result pod work.
+---------------------------------------------------------------------------------------------------------------------
+ 
+SUMMARY
+1. Commands that you used during the assignment. (not Mandatory, if you have time, please write it)
+cd $home
+yum install git -y
+git clone https://github.com/ashishrpandey/example-voting-app
+kubectl apply -f .
+kubectl get all
+kubectl get po
+kubectl get svc
+kubectl logs worker-dd46d7584-8kpn9
+kubectl delete po vote-94849dc97-9srmq
+kubectl delete po worker-dd46d7584-8kpn9
+kubectl delete po db-b54cd94f4-2ksll
+ 
+2. snapshot of logs (wherever possible, not mandatory, if you have time, please write it)
+[root@ip-13-215-178-137 result]# kubectl logs worker-dd46d7584-8kpn9
+Connected to db
+Found redis at 10.97.109.146
+Connecting to redis
+Processing vote for 'a' by '6da70c902782609'
+Processing vote for 'b' by '6da70c902782609'
+Processing vote for 'a' by '6da70c902782609'
+Processing vote for 'b' by '6da70c902782609'
+Processing vote for 'a' by '6da70c902782609'
+Processing vote for 'b' by '6da70c902782609'
+Processing vote for 'a' by '6da70c902782609'
+Processing vote for 'b' by '6da70c902782609'
+Processing vote for 'a' by '6da70c902782609'
+ 
+3. your comment on WHY result app STOPPED working after db pod stop
+As db pod contains all the data and that data appears in result app and after deleting db pod the data is completely lost so app will STOP working.
+ 
+4. your answer to HOW YOU MADE THE RESULT POD work.
+BY voting again and it will appear the result in web browser hence the result pod will work as db pod contains the data .
+ 
+5. Some jargons (just names are enough- dont need sentences) that you learnt from the  Training session
+Docker
+Microservices/k8 installation
+PODS/TITBITs
+Controllers
+Services/Deployment
+VOTINGapp
+VOLUMES
+Networking
+HELM
+ISTIO
+AWS
+GitHub - ashishrpandey/example-voting-app: Example Docker Compose app
+Example Docker Compose app. Contribute to ashishrpandey/example-voting-app development by creating an account on GitHub.
